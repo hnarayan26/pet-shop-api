@@ -30,15 +30,15 @@ public class PetShopController {
     public PetDto getPetById(@PathVariable int id) {
         try {
             return petShopService.getPetById(id);
-        } catch(Exception e) {
-            throw new RuntimeException("Get by Id controller error", e);
+        } catch(RuntimeException e) {
+            throw new RuntimeException("No pet found", e);
         }
     }
 
     @PostMapping("/addpet")
-    public ResponseEntity<Pet> addPet(@RequestBody Pet pet) {
-        Pet addedPet = petShopService.addPet(pet);
-        return new ResponseEntity<>(addedPet, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public Pet addPet(@RequestBody Pet pet) {
+        return petShopService.addPet(pet);  //return new ResponseEntity<>(addedPet, HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{id}")
@@ -52,6 +52,4 @@ public class PetShopController {
         petShopService.deletePet(id);
         return ResponseEntity.ok("Pet deleted successfully");
     }
-
-
 }

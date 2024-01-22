@@ -48,7 +48,6 @@ public class PetShopService {
 
         //Change to ternary statement
         if(existingPet != null) {
-//            existingPet.setId(newPet.getId()!=null ? newPet.getId() : existingPet.getId());
             if (newPet.getId() != null) {
                 existingPet.setId(newPet.getId());
             }

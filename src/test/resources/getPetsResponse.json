@@ -1,0 +1,16 @@
+{
+  "response": [
+    {
+      "name": "Luna",
+      "age": 1,
+      "species": "cat",
+      "price": 100
+    },
+    {
+      "name": "Latte",
+      "age": 2,
+      "species": "dog",
+      "price": 150
+    }
+  ]
+}
